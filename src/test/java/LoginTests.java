@@ -101,4 +101,6 @@ public class LoginTests extends BaseTest {
         // Post-condition
         driver.quit();
     }
+
+    //Just a comment to test commit
 }
