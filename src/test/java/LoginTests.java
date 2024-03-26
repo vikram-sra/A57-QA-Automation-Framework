@@ -9,7 +9,7 @@ public class LoginTests extends BaseTest {
     @Test
     public void loginValidEmailPassword() throws InterruptedException {
         //navigateToPage();
-        provideEmail("demo@class.com");
+        provideEmail("demosdasd@class.com");
         providePassword("te$t$tudent");
         clickLoginBtn();
         Thread.sleep(2000); // Sleep or pause for 2 seconds (adjust as needed)
