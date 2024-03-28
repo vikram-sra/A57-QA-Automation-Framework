@@ -18,7 +18,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(avatarIcon.isDisplayed());
     }
 
-    @Test
+   /* @Test
     public void loginInvalidEmailValidPassword() throws InterruptedException {
         //navigateToPage();
         provideEmail("demo@class.com");
@@ -26,10 +26,11 @@ public class LoginTests extends BaseTest {
         clickLoginBtn();
         Thread.sleep(2000); // Sleep or pause for 2 seconds (adjust as needed)
         // Expected Result
+        String url = "//https://qa.koel.app/";
         Assert.assertEquals(driver.getCurrentUrl(), url); // https://qa.koel.app/
-    }
+    }*/
 
-    @Test
+    /*@Test
     public void loginValidEmailEmptyPassword() throws InterruptedException {
         //steps
         //navigateToPage();
@@ -38,7 +39,23 @@ public class LoginTests extends BaseTest {
         clickLoginBtn();
         Thread.sleep(2000); // Sleep or pause for 2 seconds (adjust as needed)
         // Expected Result
-        Assert.assertEquals(driver.getCurrentUrl(), url); //https://qa.koel.app/
+        String url = "//https://qa.koel.app/";
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+        System.out.println("Just Testing console");
+    }*/
+
+
+    @Test(dataProvider = "NegativeLoginTestData", dataProviderClass = TestDataProvider.class)
+    public void negativeLoginTest(String email, String password) throws InterruptedException {
+        //steps
+        //navigateToPage();
+        provideEmail(email);
+        providePassword(password);
+        clickLoginBtn();
+        Thread.sleep(2000); // Sleep or pause for 2 seconds (adjust as needed)
+        // Expected Result
+        String expectedUrl = "//https://qa.koel.app/";
+        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
         System.out.println("Just Testing console");
     }
 
