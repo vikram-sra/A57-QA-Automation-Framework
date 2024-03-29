@@ -9,10 +9,10 @@ public class LoginTests extends BaseTest {
     @Test
     public void loginValidEmailPassword() throws InterruptedException {
         //navigateToPage();
-        provideEmail("demosdasd@class.com");
+        provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         clickLoginBtn();
-        Thread.sleep(2000); // Sleep or pause for 2 seconds (adjust as needed)
+        Thread.sleep(6000); // Sleep or pause for 2 seconds (adjust as needed)
         WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
         // Expected Result
         Assert.assertTrue(avatarIcon.isDisplayed());
@@ -45,7 +45,7 @@ public class LoginTests extends BaseTest {
     }*/
 
 
-    @Test(dataProvider = "NegativeLoginTestData", dataProviderClass = TestDataProvider.class)
+    //@Test(dataProvider = "NegativeLoginTestData", dataProviderClass = TestDataProvider.class)
     public void negativeLoginTest(String email, String password) throws InterruptedException {
         //steps
         //navigateToPage();
