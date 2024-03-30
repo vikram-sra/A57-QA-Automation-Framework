@@ -13,7 +13,7 @@ import java.time.Duration;
 public class BaseTest {
 
     public WebDriver driver;
-    //public WebDriverWait wait;
+    public WebDriverWait wait;
     //public String url = "https://qa.koel.app/";
 
     @BeforeSuite
@@ -29,6 +29,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         navigateToPage(baseURL);
     }
 
