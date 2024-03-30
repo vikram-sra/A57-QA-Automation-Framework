@@ -42,19 +42,22 @@ public class BaseTest {
         driver.get(url);
     }
     public void provideEmail(String email) {
-        WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
+        WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));
+        //WebElement emailField = wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector(""), "abcd"));
         emailField.clear();
         emailField.sendKeys(email);
     }
 
     public void providePassword(String password) {
-        WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
+        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='password']")));
+        //WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
         passwordField.clear();
         passwordField.sendKeys(password);
     }
 
     void clickLoginBtn() {
-        WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
+        WebElement submit = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='submit']")));
+        //WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
         submit.click();
     }
 
