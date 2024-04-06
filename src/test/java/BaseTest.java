@@ -30,14 +30,11 @@ public class BaseTest {
     public void launchBrowser(String baseURL){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         actions = new Actions(driver);
-
         navigateToPage(baseURL);
     }
 
