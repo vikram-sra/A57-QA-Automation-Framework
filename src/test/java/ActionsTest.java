@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pom.LoginPage;
+
 import java.util.List;
 
 public class ActionsTest extends BaseTest{
@@ -102,10 +104,8 @@ public class ActionsTest extends BaseTest{
     @Test
     public void renamePlaylist(){
         String updatedPlaylistMsg = "Updated playlist \""+newPlaylistName+".\"";
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
-        clickLoginBtn();
-
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login();
         doubleClickPlaylist();
         enterNewPlaylistName();
         Assert.assertEquals(getRenamePlaylistSuccessMsg(), updatedPlaylistMsg);
