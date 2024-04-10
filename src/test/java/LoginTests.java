@@ -8,17 +8,15 @@ import pom.LoginPage;
 
 public class LoginTests extends BaseTest {
 
-    @Test
+    //@Test
     public void loginValidEmailPassword() throws InterruptedException {
-
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
-
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent");
-        loginPage.clickSubmit();
-
-        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+        provideEmail("demosdasd@class.com");
+        providePassword("te$t$tudent");
+        clickLoginBtn();
+        Thread.sleep(2000); // Sleep or pause for 2 seconds (adjust as needed)
+        WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
+        // Expected Result
+        Assert.assertTrue(avatarIcon.isDisplayed());
     }
 
    /* @Test
@@ -61,5 +59,29 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
         System.out.println("Just Testing console");
     }
+    //@Test
+    public void loginValidEmailPasswordUsingPOM() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        loginPage.provideEmail("demo@class.com");
+        loginPage.providePassword("te$t$tudent");
+        loginPage.clickSubmit();
+        Thread.sleep(500);
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+    }
+
+    @Test
+    public void loginValidEmailPasswordUsingPageFactory() throws InterruptedException {
+
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.provideEmailToLogin("demo@class.com")
+                .providePasswordToLogin("te$t$tudent")
+                .clickSubmitBtn();
+
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+    }
+
 
 }
