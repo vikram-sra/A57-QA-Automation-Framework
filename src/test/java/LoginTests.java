@@ -8,9 +8,9 @@ import pom.LoginPage;
 
 public class LoginTests extends BaseTest {
 
-    //@Test
+    @Test
     public void loginValidEmailPassword() throws InterruptedException {
-        provideEmail("demosdasd@class.com");
+        provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         clickLoginBtn();
         Thread.sleep(2000); // Sleep or pause for 2 seconds (adjust as needed)
@@ -70,7 +70,7 @@ public class LoginTests extends BaseTest {
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
     }
 
-    @Test
+    //@Test
     public void loginValidEmailPasswordUsingPageFactory() throws InterruptedException {
 
         LoginPage loginPage = new LoginPage(driver);
