@@ -14,8 +14,8 @@ public class ActionsTest extends BaseTest{
     //@Test
     public void playSong() throws InterruptedException{
         //Background steps
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
+        provideEmail("dvikramjit@testpro.io");
+        providePassword("Vv3ZKxcI");
         clickLoginBtn();
         //Choose All Songs
         chooseAllSongsList();

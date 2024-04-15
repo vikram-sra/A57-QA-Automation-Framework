@@ -8,7 +8,7 @@ import pom.LoginPage;
 
 public class LoginTests extends BaseTest {
 
-    @Test
+    //@Test
     public void loginValidEmailPassword() throws InterruptedException {
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
@@ -59,12 +59,12 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
         System.out.println("Just Testing console");
     }
-    //@Test
+    @Test
     public void loginValidEmailPasswordUsingPOM() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
-        loginPage.provideEmail("demo@class.com");
-        loginPage.providePassword("te$t$tudent");
+        loginPage.provideEmail("vikramjit@testpro.io");
+        loginPage.providePassword("Vv3ZKxcI");
         loginPage.clickSubmit();
         Thread.sleep(500);
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
